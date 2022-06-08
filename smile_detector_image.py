@@ -5,7 +5,7 @@ height = 600
 blue = (255, 0, 0)
 
 # load the image, resize it, and convert it to grayscale
-image = cv2.imread(f"images/1.jpg")
+image = cv2.imread("images/1.jpg")
 image = cv2.resize(image, (width, height))
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -33,7 +33,6 @@ for (x, y, w, h) in face_rects:
     else:
         # if `levelWeights` is below 2, we classify this as "Not Smiling"
         if max(levelWeights) < 2:
-            print("max sweight", max(levelWeights))
             cv2.putText(image, "Not Smiling", (20, 20),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.75, blue, 3)
         # otherwise, there is a smiling in the face ROI
